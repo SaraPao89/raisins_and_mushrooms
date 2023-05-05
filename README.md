@@ -1,5 +1,5 @@
 # Raisins and mushrooms
-Statistical Learnign group work - Unimi
+Statistical Learning group work - Unimi
 
 Yes, we could choose pasta, pizza, gelato or other stereotypical italian stuffs but aren't raisins and mushrooms good?
 

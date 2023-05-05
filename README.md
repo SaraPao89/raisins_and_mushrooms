@@ -1,4 +1,4 @@
-# raisins_and_mushrooms
+# Raisins and mushrooms
 Statistical Learnign group work - Unimi
 
 Yes, we could choose pasta, pizza, gelato or other stereotypical italian stuffs but aren't raisins and mushrooms good?

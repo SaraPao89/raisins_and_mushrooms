@@ -1,6 +1,9 @@
 ---
 title: "Descriptive Analysis"
-output: rmarkdown::github_document
+author: "Davide"
+output:  
+  html_document:
+    keep_md: true
 date: "2023-05-19"
 ---
 

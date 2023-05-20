@@ -1,3 +1,7 @@
+---
+output: rmarkdown::github_document
+---
+
 
 ```{r}
 library(ggplot2)

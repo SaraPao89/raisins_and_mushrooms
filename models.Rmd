@@ -23,6 +23,7 @@ raisins <- read.csv("https://raw.githubusercontent.com/LeonardoAcquaroli/raisins
 raisins <- raisins[-c(8)]
 # Scale Area by 1000 for better interpretability
 raisins$Area <- raisins$Area / 1000
+raisins
 ```
 ```{r}
 # 1. OLS

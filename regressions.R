@@ -10,10 +10,13 @@ library(Matrix)
 
 # load the dataset
 # Class = 1 if raisin is of Kecimen type, 0 if it is Besni
-raisins = read.csv('C:/Users/jingw/OneDrive/Desktop/progetto statistical learning/Raisin_Dataset.csv',sep=';')
+raisins = read.csv(
+  "https://raw.githubusercontent.com/LeonardoAcquaroli/raisins_and_mushrooms/main/datasets/Raisin_Dataset.csv",
+  sep = ";"
+)
 # remove the column of the literal class
 #raisins = raisins %>% select(-Class_literal) # don't know why it doesn't work
-raisins = raisins[-c(8)]
+raisins = raisins[,-8]
 raisins$Class = as.factor(raisins$Class)
 #raisins$Area = raisins$Area/1000 # scale Area by 1000 for better interpretability. Recall Area is the n. of pixel inside the boundaries of the raisin
 
@@ -64,6 +67,7 @@ plot(cv.ridge)
 
 coef(cv.ridge)
 
+mse(fit.ridge, raisins, "Class")
 # 5. Lasso
 fit.lasso=glmnet(x,y)
 plot(fit.lasso,xvar="lambda",label=TRUE)
@@ -74,6 +78,8 @@ plot(cv.lasso)
 
 
 coef(cv.lasso)
+
+mse(fit.lasso, raisins, "Class")
 # 6. Tree
 plot(tree(Class ~ ., data = raisins))
 text(tree(Class ~ ., data = raisins))

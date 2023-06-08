@@ -34,7 +34,6 @@ head(df)
 ## 6   881.836
 ```
 
-mean(df$Area)
 
 
 ```r
@@ -129,6 +128,8 @@ arrows(0, 0, pr.out$rotation[, 1], pr.out$rotation[, 2], length = 0.1, angle = 3
 ```
 
 ![](PCA_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+
+
 Shows both the dimension and the arrows' label, but not the points
 
 ```r
@@ -136,6 +137,8 @@ biplot(pr.out)
 ```
 
 ![](PCA_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+
+
 Compromise, arrows length increased
 
 ```r

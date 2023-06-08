@@ -15,7 +15,6 @@ df = data[-c(8, 9)]
 head(df)
 ```
 
-mean(df$Area)
 
 ```{r}
 options(scipen = 10)
@@ -41,10 +40,14 @@ plot(pr.out$x[, 1], pr.out$x[, 2], type = "n", xlab = "PC1", ylab = "PC2")
 points(pr.out$x[, 1], pr.out$x[, 2], col = rgb(1, 0, 0, alpha = 0.5), pch = 16) 
 arrows(0, 0, pr.out$rotation[, 1], pr.out$rotation[, 2], length = 0.1, angle = 30)
 ```
+
+
 Shows both the dimension and the arrows' label, but not the points
 ```{r}
 biplot(pr.out)
 ```
+
+
 Compromise, arrows length increased
 ```{r}
 plot(pr.out$x[, 1], pr.out$x[, 2], type = "n", xlab = "PC1", ylab = "PC2") 

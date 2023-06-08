@@ -1,6 +1,5 @@
 ---
 title: "Descriptive Analysis"
-author: "Davide"
 output:  
   html_document:
     keep_md: true
@@ -15,6 +14,10 @@ library(ggplot2)
 
 ```{r}
 data = read.csv('datasets/Raisin_Dataset.csv', header=TRUE, sep=";")
+```
+
+```{r}
+table(data$Class_literal)
 ```
 
 ```{r}

@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Davide" />
 
 <meta name="date" content="2023-05-19" />
 
@@ -357,7 +356,6 @@ display: none;
 
 
 <h1 class="title toc-ignore">Descriptive Analysis</h1>
-<h4 class="author">Davide</h4>
 <h4 class="date">2023-05-19</h4>
 
 </div>
@@ -365,6 +363,10 @@ display: none;
 
 <pre class="r"><code>library(ggplot2)</code></pre>
 <pre class="r"><code>data = read.csv(&#39;datasets/Raisin_Dataset.csv&#39;, header=TRUE, sep=&quot;;&quot;)</code></pre>
+<pre class="r"><code>table(data$Class_literal)</code></pre>
+<pre><code>## 
+##   Besni Kecimen 
+##     450     450</code></pre>
 <pre class="r"><code>summary(data)</code></pre>
 <pre><code>##       Area        MajorAxisLength MinorAxisLength  Eccentricity   
 ##  Min.   : 25387   Min.   :225.6   Min.   :143.7   Min.   :0.3487  

@@ -97,6 +97,9 @@ km.out
 ```
 
 
+Since clusters do not correspond to a specific category, we cannot estimate accuracy. 
+However, distribution should be 450-450, but it is 189-711, so the algorithm is clearly not adequate for this dataset.
+
 
 ```r
 plot (df, col = adjustcolor(km.out$cluster + 1, alpha.f = 0.1),
@@ -104,3 +107,13 @@ main = "K- Means Clustering Results with K = 2", pch = 20)
 ```
 
 ![](Clustering_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
+
+Since clusters do not correspond to a specific category, we cannot estimate accuracy. 
+However, distribution should be 450-450, but it is 189-711, so the algorithm is clearly not adequate for this dataset.
+
+
+
+
+
+

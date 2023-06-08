@@ -1,0 +1,55 @@
+---
+title: "PCA_raisins"
+output: html_notebook
+---
+
+```{r}
+data = read.csv('datasets/Raisin_Dataset.csv', sep = ';')
+```
+
+We exclude the label variable
+```{r}
+df = data[-c(8, 9)]
+df
+```
+
+mean(df$Area)
+
+```{r}
+options(scipen = 10)
+round((apply(df, 2, mean)), digits = 5); round((apply(df, 2, var)), digits = 5)
+```
+```{r}
+summary(df)
+```
+
+
+```{r}
+pr.out = prcomp(df, scale = TRUE)
+pr.out
+```
+```{r}
+summary(pr.out)
+```
+
+
+Correct dimensions, show clearly the points but it is not readable
+```{r}
+plot(pr.out$x[, 1], pr.out$x[, 2], type = "n", xlab = "PC1", ylab = "PC2")  
+points(pr.out$x[, 1], pr.out$x[, 2], col = rgb(1, 0, 0, alpha = 0.5), pch = 16) 
+arrows(0, 0, pr.out$rotation[, 1], pr.out$rotation[, 2], length = 0.1, angle = 30)
+```
+Shows both the dimension and the arrows' label, but not the points
+```{r}
+biplot(pr.out)
+```
+Compromise, arrows length increased
+```{r}
+plot(pr.out$x[, 1], pr.out$x[, 2], type = "n", xlab = "PC1", ylab = "PC2") 
+points(pr.out$x[, 1], pr.out$x[, 2], col = rgb(1, 0, 0, alpha = 0.5), pch = 16)  
+arrows(0, 0, pr.out$rotation[, 1]*7, pr.out$rotation[, 2]*7, length = 0.1, angle = 30)
+text(pr.out$rotation[, 1]*7, pr.out$rotation[, 2]*7, labels = rownames(pr.out[[2]]), pos = 3)
+```
+
+
+

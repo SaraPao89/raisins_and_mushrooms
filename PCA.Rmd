@@ -12,7 +12,7 @@ data = read.csv('datasets/Raisin_Dataset.csv', sep = ';')
 We exclude the label variable
 ```{r}
 df = data[-c(8, 9)]
-df
+head(df)
 ```
 
 mean(df$Area)

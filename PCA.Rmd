@@ -56,5 +56,31 @@ arrows(0, 0, pr.out$rotation[, 1]*7, pr.out$rotation[, 2]*7, length = 0.1, angle
 text(pr.out$rotation[, 1]*7, pr.out$rotation[, 2]*7, labels = rownames(pr.out[[2]]), pos = 3)
 ```
 
+Get the components' value for each observation
+
+
+```{r}
+
+pcadf <- predict(pr.out, newdata = df)
+head(pcadf)
+
+```
+
+
+Perform 2-means clustering on the components' values for each observation
+
+```{r}
+km.out2 = kmeans(pcadf, 2)
+km.out2
+```
+
+Graphical representation of the clusters. 
+Results are slightly better on PC than on initial features
+
+
+```{r}
+plot (pcadf, col = adjustcolor(km.out2$cluster + 1, alpha.f = 0.5),
+main = "K- Means Clustering Results with K = 2", pch = 20)
+```
 
 

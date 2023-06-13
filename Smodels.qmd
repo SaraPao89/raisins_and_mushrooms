@@ -309,8 +309,12 @@ tree_test_predictions = predict(tree, newdata = test, type = "tree")
 tree_predictions = predict(tree, newdata = train[,-8], type = "tree")
 
 # Calculate mean squared error for the test data
-#mse(tree_test_predictions, test, "Class")
-#mse(tree_test_predictions, test, "Class")
+mse(tree_test_predictions, test, "Class")
+mse(tree_test_predictions, test, "Class")
+
+#plot carino
+#valutarlo : prendere predizioni e calcolare mse su training e test
+#confusion matrix
 ```
 
 # Unsupervised models

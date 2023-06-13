@@ -48,7 +48,7 @@ library(GGally)
 library(car)
 ```
 
-#### Loading data-set 
+#### Loading data-set
 
 (Aim: visualize dataset, summary, remove Class_literal)
 
@@ -205,7 +205,7 @@ mse_test<-mse(ols_test_predictions,test,"Class") #test error
 mse_test
 ```
 
-###  2. ROBUST OLS
+### 2. ROBUST OLS
 
 ```{r}
 library(sandwich)

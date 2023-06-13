@@ -1,6 +1,5 @@
 ---
 title: "Descriptive Analysis"
-author: "Davide"
 output:  
   html_document:
     keep_md: true
@@ -17,6 +16,17 @@ library(ggplot2)
 
 ```r
 data = read.csv('datasets/Raisin_Dataset.csv', header=TRUE, sep=";")
+```
+
+
+```r
+table(data$Class_literal)
+```
+
+```
+## 
+##   Besni Kecimen 
+##     450     450
 ```
 
 
@@ -55,7 +65,7 @@ Correlogram (Aim: Find possible correlation among variables)
 plot(data)
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 
 Boxplots (Aim: Identify outliers)
@@ -66,7 +76,7 @@ Boxplots (Aim: Identify outliers)
 boxplot(data$Area)
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 
@@ -74,7 +84,7 @@ boxplot(data$Area)
 boxplot(data$MajorAxisLength)
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 
 
@@ -82,19 +92,11 @@ boxplot(data$MajorAxisLength)
 boxplot(data$MinorAxisLength)
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 
 ```r
 boxplot(data$Eccentricity)
-```
-
-![](descriptive_analysis_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
-
-
-
-```r
-boxplot(data$ConvexArea)
 ```
 
 ![](descriptive_analysis_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
@@ -102,7 +104,7 @@ boxplot(data$ConvexArea)
 
 
 ```r
-boxplot(data$Extent)
+boxplot(data$ConvexArea)
 ```
 
 ![](descriptive_analysis_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
@@ -110,10 +112,18 @@ boxplot(data$Extent)
 
 
 ```r
-boxplot(data$Perimeter)
+boxplot(data$Extent)
 ```
 
 ![](descriptive_analysis_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+
+
+
+```r
+boxplot(data$Perimeter)
+```
+
+![](descriptive_analysis_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 
 
@@ -122,7 +132,7 @@ boxplot(data$Perimeter)
 boxplot(data$Class)
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 
 Histograms highlighting class differences (Aim: See if variables' distribution depend on Class)
@@ -138,24 +148,11 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Area),
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
 
 
 ```r
 ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = MajorAxisLength), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = MajorAxisLength), fill='yellow', alpha = 0.5)
-```
-
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
-![](descriptive_analysis_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
-
-
-
-```r
-ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = MinorAxisLength), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = MinorAxisLength), fill='yellow', alpha = 0.5)
 ```
 
 ```
@@ -168,7 +165,7 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = MinorA
 
 
 ```r
-ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Eccentricity), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = Eccentricity), fill='yellow', alpha = 0.5)
+ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = MinorAxisLength), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = MinorAxisLength), fill='yellow', alpha = 0.5)
 ```
 
 ```
@@ -181,7 +178,7 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Eccent
 
 
 ```r
-ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = ConvexArea), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = ConvexArea), fill='yellow', alpha = 0.5)
+ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Eccentricity), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = Eccentricity), fill='yellow', alpha = 0.5)
 ```
 
 ```
@@ -194,7 +191,7 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Convex
 
 
 ```r
-ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Extent), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = Extent), fill='yellow', alpha = 0.5)
+ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = ConvexArea), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = ConvexArea), fill='yellow', alpha = 0.5)
 ```
 
 ```
@@ -203,6 +200,19 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Extent
 ```
 
 ![](descriptive_analysis_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
+
+
+
+```r
+ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Extent), fill = 'black', alpha = 0.5) + geom_histogram(data = subset(x=data, subset=Class==0), aes(x = Extent), fill='yellow', alpha = 0.5)
+```
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+![](descriptive_analysis_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
 
 
 ```r
@@ -214,7 +224,7 @@ ggplot() + geom_histogram(data = subset(x=data, subset=Class==1), aes(x = Perime
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](descriptive_analysis_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+![](descriptive_analysis_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
 
 
 
